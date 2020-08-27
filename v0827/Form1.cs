@@ -12,6 +12,12 @@ namespace v0827
 {
     public partial class Form1 : Form
     {
+        int ax = rand.Next(-10, 11);
+        int ay = rand.Next(-10, 11);
+
+        int x = rand.Next(-10, 11);
+        int y = rand.Next(-10, 11);
+
         int vx = rand.Next(-10,11);
         int vy = rand.Next(-10,11);
         int a = Math.Abs(-10);
@@ -23,6 +29,12 @@ namespace v0827
 
             label1.Left = rand.Next(ClientSize.Width - label1.Width);
             label1.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            label3.Left = rand.Next(ClientSize.Width - label1.Width);
+            label3.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            label4.Left = rand.Next(ClientSize.Width - label1.Width);
+            label4.Top = rand.Next(ClientSize.Height - label1.Height);
            
         }
 
@@ -32,6 +44,12 @@ namespace v0827
 
             label1.Left += vx;
             label1.Top += vy;
+
+            label3.Left += x;
+            label3.Top += y;
+
+            label4.Left += ax;
+            label4.Top += ay;
 
             Point mp = MousePosition;
             mp = PointToClient(mp);
@@ -54,6 +72,40 @@ namespace v0827
             if (label1.Top >= ClientSize.Height)
             {
                 vy = -Math.Abs(vy) * 11 / 10;
+            }
+
+            if (label3.Left <= 0)
+            {
+                vx = Math.Abs(x) * 11 / 10;
+            }
+            if (label3.Top <= 0)
+            {
+                vy = Math.Abs(y) * 11 / 10;
+            }
+            if (label3.Right >= ClientSize.Width)
+            {
+                vx = -Math.Abs(x) * 11 / 10;
+            }
+            if (label3.Top >= ClientSize.Height)
+            {
+                vy = -Math.Abs(y) * 11 / 10;
+            }
+
+            if (label4.Left <= 0)
+            {
+                vx = Math.Abs(ax) * 11 / 10;
+            }
+            if (label4.Top <= 0)
+            {
+                vy = Math.Abs(ay) * 11 / 10;
+            }
+            if (label4.Right >= ClientSize.Width)
+            {
+                vx = -Math.Abs(ax) * 11 / 10;
+            }
+            if (label4.Top >= ClientSize.Height)
+            {
+                vy = -Math.Abs(ay) * 11 / 10;
             }
 
             if ((mp.X >= label1.Left) && (mp.X < label1.Right)&&(mp.Y >= label1.Top) && (mp.Y < label1.Bottom))
