@@ -14,7 +14,7 @@ namespace v0827
     {
         int vx = -10;
         int vy = -10;
-        int zettai = Math.Abs(-10);
+        int a = Math.Abs(-10);
         public Form1()
         {
             InitializeComponent();
