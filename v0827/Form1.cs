@@ -22,13 +22,15 @@ namespace v0827
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
+
             label1.Left += vx;
             label1.Top += vy;
 
             Point mp = MousePosition;
             mp = PointToClient(mp);
-            label2.Left = mp.X;
-            label2.Top = mp.Y;
+          //label2.Left = mp.X;
+           // label2.Top = mp.Y;
             label2.Text = "" + mp.X + "," + mp.Y;
 
             if (label1.Left <= 0)
@@ -47,6 +49,12 @@ namespace v0827
             {
                 vy = -Math.Abs(vy) * 11 / 10;
             }
+
+            if ((mp.X >= label1.Left) && (mp.X < label1.Right)&&(mp.Y >= label1.Top) && (mp.Y < label1.Bottom))
+            {
+                timer1.Enabled = false;
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
